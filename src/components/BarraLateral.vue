@@ -16,16 +16,11 @@ export default defineComponent({
 
 <style >
 header {
-  padding: 1rem;
   background: #0d3b66;
   width: 100%;
   height: 100vh;
 }
 
-img {
-  width: 400px;
-  height: 200px;
-}
 @media only screen and (max-width: 768px) {
   header {
     padding: 2.5rem;
