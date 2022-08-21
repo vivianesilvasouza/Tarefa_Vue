@@ -12,61 +12,19 @@
           placeholder="Qual tarefa você deseja iniciar?"
         />
       </div>
-      <div class="column">
-        <div
-          class="is-flex is-align-items-center is-justify-content-space-between"
-        >
-          <section>
-            <strong> {{ tempoDecorrido }}</strong>
-          </section>
-          <button class="button" @click="iniciar">
-            <span class="icon">
-              <i class="fas fa-play"></i>
-            </span>
-            <span>play</span>
-          </button>
-          <button class="button" @click="finalizar">
-            <span class="icon">
-              <i class="fas fa-stop"></i>
-            </span>
-            <span>stop</span>
-          </button>
-        </div>
-      </div>
+      <div class="column"><TempoTarefa /></div>
     </div>
   </div>
 </template>
 
 <script lang="ts" >
 import { defineComponent } from "vue";
+import TempoTarefa from "./TempoTarefa.vue";
 
 export default defineComponent({
   name: "FormularioTarefa",
-  data() {
-    return {
-      tempoemSegundos: 0,
-    };
-  },
-  computed: {
-    tempoDecorrido(): string {
-      return new Date(this.tempoemSegundos * 1000).toISOString().substr(11, 8);
-    },
-  },
-  methods: {
-    iniciar() {
-      // começar a contagem
-      // 1 seg = 100 ms
-      setInterval(() => {
-        this.tempoemSegundos += 1;
-      }, 1000);
-      console.log("iniciando");
-    },
-    finalizar() {
-      console.log("finalizando");
-    },
+  components: {
+    TempoTarefa,
   },
 });
 </script>
-
-<style scoped>
-</style>
