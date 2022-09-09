@@ -22,6 +22,7 @@ import CronometroTarefa from "./CronometroTarefa.vue";
 
 export default defineComponent({
   name: "TempoTarefa",
+  emits: ["aoTemporizadorFinalizado"],
   components: {
     CronometroTarefa,
   },
@@ -46,6 +47,8 @@ export default defineComponent({
     finalizar() {
       this.cronometroRodando = false;
       clearInterval(this.cronometro);
+      this.$emit("aoTemporizadorFinalizado", this.tempoemSegundos);
+      this.tempoemSegundos = 0;
     },
   },
 });
